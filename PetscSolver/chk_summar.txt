@@ -1,0 +1,162 @@
+
+  Total # of levels (at start)   =  5
+
+  ------else if; PCLU on coarsesolve for k = 2
+
+** Number of iterations done = 10 
+
+[PETSc]:Time spend in setup = 3.402090e-02 
+[PETSc]:Time spend in solve = 5.518603e-02 
+[PETSc]:Total time = 8.920693e-02 
+
+************************************************************************************************************************
+***             WIDEN YOUR WINDOW TO 120 CHARACTERS.  Use 'enscript -r -fCourier9' to print this document            ***
+************************************************************************************************************************
+
+---------------------------------------------- PETSc Performance Summary: ----------------------------------------------
+
+./MLsolver-main on a linux-gnu named dutinwy with 1 processor, by sheikh Mon Mar 26 13:12:58 2012
+Using Petsc Release Version 3.2.0, Patch 6, Wed Jan 11 09:28:45 CST 2012 
+
+                         Max       Max/Min        Avg      Total 
+Time (sec):           9.004e-02      1.00000   9.004e-02
+Objects:              1.430e+02      1.00000   1.430e+02
+Flops:                1.378e+07      1.00000   1.378e+07  1.378e+07
+Flops/sec:            1.530e+08      1.00000   1.530e+08  1.530e+08
+Memory:               2.850e+06      1.00000              2.850e+06
+MPI Messages:         0.000e+00      0.00000   0.000e+00  0.000e+00
+MPI Message Lengths:  0.000e+00      0.00000   0.000e+00  0.000e+00
+MPI Reductions:       4.940e+02      1.00000
+
+Flop counting convention: 1 flop = 1 real number operation of type (multiply/divide/add/subtract)
+                            e.g., VecAXPY() for real vectors of length N --> 2N flops
+                            and VecAXPY() for complex vectors of length N --> 8N flops
+
+Summary of Stages:   ----- Time ------  ----- Flops -----  --- Messages ---  -- Message Lengths --  -- Reductions --
+                        Avg     %Total     Avg     %Total   counts   %Total     Avg         %Total   counts   %Total 
+ 0:      Main Stage: 9.0032e-02 100.0%  1.3776e+07 100.0%  0.000e+00   0.0%  0.000e+00        0.0%  4.930e+02  99.8% 
+
+------------------------------------------------------------------------------------------------------------------------
+See the 'Profiling' chapter of the users' manual for details on interpreting output.
+Phase summary info:
+   Count: number of times phase was executed
+   Time and Flops: Max - maximum over all processors
+                   Ratio - ratio of maximum to minimum over all processors
+   Mess: number of messages sent
+   Avg. len: average message length
+   Reduct: number of global reductions
+   Global: entire computation
+   Stage: stages of a computation. Set stages with PetscLogStagePush() and PetscLogStagePop().
+      %T - percent time in this phase         %f - percent flops in this phase
+      %M - percent messages in this phase     %L - percent message lengths in this phase
+      %R - percent reductions in this phase
+   Total Mflop/s: 10e-6 * (sum of flops over all processors)/(max time over all processors)
+------------------------------------------------------------------------------------------------------------------------
+
+
+      ##########################################################
+      #                                                        #
+      #                          WARNING!!!                    #
+      #                                                        #
+      #   This code was compiled with a debugging option,      #
+      #   To get timing results run ./configure                #
+      #   using --with-debugging=no, the performance will      #
+      #   be generally two or three times faster.              #
+      #                                                        #
+      ##########################################################
+
+
+
+
+      ##########################################################
+      #                                                        #
+      #                          WARNING!!!                    #
+      #                                                        #
+      #   The code for various complex numbers numerical       #
+      #   kernels uses C++, which generally is not well        #
+      #   optimized.  For performance that is about 4-5 times  #
+      #   faster, specify --with-fortran-kernels=1             #
+      #   when running ./configure.py.                         #
+      #                                                        #
+      ##########################################################
+
+
+Event                Count      Time (sec)     Flops                             --- Global ---  --- Stage ---   Total
+                   Max Ratio  Max     Ratio   Max  Ratio  Mess   Avg len Reduct  %T %f %M %L %R  %T %f %M %L %R Mflop/s
+------------------------------------------------------------------------------------------------------------------------
+
+--- Event Stage 0: Main Stage
+
+VecDotNorm2           10 1.0 1.0583e-03 1.0 1.74e+05 1.0 0.0e+00 0.0e+00 1.0e+01  1  1  0  0  2   1  1  0  0  2   165
+VecMDot                9 1.0 2.5480e-03 1.0 3.92e+05 1.0 0.0e+00 0.0e+00 0.0e+00  3  3  0  0  0   3  3  0  0  0   154
+VecNorm               41 1.0 6.2633e-04 1.0 3.57e+05 1.0 0.0e+00 0.0e+00 0.0e+00  1  3  0  0  0   1  3  0  0  0   570
+VecScale              20 1.0 1.5998e-04 1.0 8.71e+04 1.0 0.0e+00 0.0e+00 0.0e+00  0  1  0  0  0   0  1  0  0  0   545
+VecCopy               20 1.0 6.0320e-05 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecSet                41 1.0 5.4121e-05 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecAXPY               30 1.0 3.0923e-04 1.0 2.61e+05 1.0 0.0e+00 0.0e+00 0.0e+00  0  2  0  0  0   0  2  0  0  0   845
+VecAYPX               31 1.0 7.3647e-04 1.0 1.35e+05 1.0 0.0e+00 0.0e+00 0.0e+00  1  1  0  0  0   1  1  0  0  0   183
+VecMAXPY              18 1.0 3.6819e-03 1.0 7.84e+05 1.0 0.0e+00 0.0e+00 0.0e+00  4  6  0  0  0   4  6  0  0  0   213
+VecAssemblyBegin       2 1.0 9.5367e-07 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecAssemblyEnd         2 1.0 1.1921e-06 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecLoad                2 1.0 2.4199e-04 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 2.0e+00  0  0  0  0  0   0  0  0  0  0     0
+MatMult               51 1.0 9.2468e-03 1.0 1.73e+06 1.0 0.0e+00 0.0e+00 0.0e+00 10 13  0  0  0  10 13  0  0  0   187
+MatMultAdd            10 1.0 1.0102e-03 1.0 1.92e+05 1.0 0.0e+00 0.0e+00 0.0e+00  1  1  0  0  0   1  1  0  0  0   190
+MatSolve              40 1.0 3.3266e-02 1.0 6.89e+06 1.0 0.0e+00 0.0e+00 0.0e+00 37 50  0  0  0  37 50  0  0  0   207
+MatLUFactorSym         2 1.0 2.2528e-03 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 1.0e+01  3  0  0  0  2   3  0  0  0  2     0
+MatLUFactorNum         2 1.0 1.6540e-02 1.0 2.78e+06 1.0 0.0e+00 0.0e+00 0.0e+00 18 20  0  0  0  18 20  0  0  0   168
+MatAssemblyBegin      22 1.0 6.9141e-06 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+MatAssemblyEnd        22 1.0 4.1485e-04 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+MatGetRowIJ            2 1.0 1.2922e-04 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+MatGetOrdering         2 1.0 1.7550e-03 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 4.0e+00  2  0  0  0  1   2  0  0  0  1     0
+MatLoad               22 1.0 5.6605e-03 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 4.4e+01  6  0  0  0  9   6  0  0  0  9     0
+KSPSetup               4 1.0 1.3747e-03 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 1.4e+02  2  0  0  0 28   2  0  0  0 28     0
+KSPSolve               1 1.0 5.5149e-02 1.0 1.10e+07 1.0 0.0e+00 0.0e+00 3.8e+02 61 80  0  0 76  61 80  0  0 76   199
+PCSetUp                1 1.0 2.1854e-02 1.0 2.78e+06 1.0 0.0e+00 0.0e+00 3.4e+01 24 20  0  0  7  24 20  0  0  7   127
+PCApply               10 1.0 4.3635e-02 1.0 8.87e+06 1.0 0.0e+00 0.0e+00 1.3e+02 48 64  0  0 26  48 64  0  0 26   203
+------------------------------------------------------------------------------------------------------------------------
+
+Memory usage is given in bytes:
+
+Object Type          Creations   Destructions     Memory  Descendants' Mem.
+Reports information only for process 0.
+
+--- Event Stage 0: Main Stage
+
+              Viewer     2              1          720     0
+              Vector    87             81      1527336     0
+              Matrix    40              3       824240     0
+       Krylov Solver     4              4         4384     0
+      Preconditioner     4              4         3984     0
+           Index Set     6              6        15488     0
+========================================================================================================================
+Average time to get PetscTime(): 9.53674e-08
+#PETSc Option Table entries:
+-LUonM
+-coarselevel 1
+-f files/k20_file_levels.dat
+-log_summary
+#End of PETSc Option Table entries
+Compiled without FORTRAN kernels
+Compiled with full precision matrices (default)
+sizeof(short) 2 sizeof(int) 4 sizeof(long) 8 sizeof(void*) 8 sizeof(PetscScalar) 16
+Configure run at: Thu Mar  1 14:20:42 2012
+Configure options: --with-cc=gcc --with-fc=gfortran --with-cxx=g++ --download-f-blas-lapack=1 --download-mpich=1 --with-scalar-type=complex --with-clanguage=cxx
+-----------------------------------------
+Libraries compiled on Thu Mar  1 14:20:42 2012 on dutinwy 
+Machine characteristics: Linux-3.2.2-64-x86_64-Intel-R-_Core-TM-2_Duo_CPU_____E8400__@_3.00GHz-with-slackware-13.37.0
+Using PETSc directory: //home/nw/sheikh/Localdisk/petsc-3.2-p6
+Using PETSc arch: linux-gnu-c-debug
+-----------------------------------------
+
+Using C compiler: //home/nw/sheikh/Localdisk/petsc-3.2-p6/linux-gnu-c-debug/bin/mpicxx   -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -g    ${COPTFLAGS} ${CFLAGS}
+Using Fortran compiler: //home/nw/sheikh/Localdisk/petsc-3.2-p6/linux-gnu-c-debug/bin/mpif90   -Wall -Wno-unused-variable -Wno-line-truncation -g  ${FOPTFLAGS} ${FFLAGS} 
+-----------------------------------------
+
+Using include paths: -I//home/nw/sheikh/Localdisk/petsc-3.2-p6/linux-gnu-c-debug/include -I//home/nw/sheikh/Localdisk/petsc-3.2-p6/include -I//home/nw/sheikh/Localdisk/petsc-3.2-p6/include -I//home/nw/sheikh/Localdisk/petsc-3.2-p6/linux-gnu-c-debug/include
+-----------------------------------------
+
+Using C linker: //home/nw/sheikh/Localdisk/petsc-3.2-p6/linux-gnu-c-debug/bin/mpicxx
+Using Fortran linker: //home/nw/sheikh/Localdisk/petsc-3.2-p6/linux-gnu-c-debug/bin/mpif90
+Using libraries: -Wl,-rpath,//home/nw/sheikh/Localdisk/petsc-3.2-p6/linux-gnu-c-debug/lib -L//home/nw/sheikh/Localdisk/petsc-3.2-p6/linux-gnu-c-debug/lib -lpetsc -lX11 -lpthread -Wl,-rpath,//home/nw/sheikh/Localdisk/petsc-3.2-p6/linux-gnu-c-debug/lib -L//home/nw/sheikh/Localdisk/petsc-3.2-p6/linux-gnu-c-debug/lib -lflapack -lfblas -lm -L/usr/lib64/gcc/x86_64-slackware-linux/4.5.2 -L/usr/x86_64-slackware-linux/lib -ldl -lmpich -lopa -lmpl -lrt -lpthread -lgcc_s -lmpichf90 -lgfortran -lm -lm -lmpichcxx -lstdc++ -ldl -lmpich -lopa -lmpl -lrt -lpthread -lgcc_s -ldl 
+-----------------------------------------
+

@@ -1,0 +1,18 @@
+
+Notice that main file MainSolver.c make call of two other functions;
+
+    1. MLadef.c
+    2. GMGcycle.c
+
+Write these files accordingly in your make file and 
+keep that make file in directory, where file MainSolver.c is . 
+
+
+==============================
+
+
+An example of how to compile and execute the main file and sub files. 
+
+> make GMGcycle.c; make MLadef.c; make MainSolver
+
+./Main -f ~/path/to/your/datafile/filename.dat 

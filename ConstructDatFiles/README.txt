@@ -1,0 +1,13 @@
+Play the file MainMarmousi.m
+It will ask for options in an input dialogue box. 
+Test play with defaults option or provide options. 
+".dat " with customized filename will be written. 
+
+=================
+PLEASE NOTE
+=================
+Reading .dat file in Petsc is sensible of orders of things(matrices and vectors) 
+written in .dat file . 
+
+If you wish to adapt, adapt it carefully. Take care of the order, 
+persist with same order while writing into .dat file and reading same .dat file.

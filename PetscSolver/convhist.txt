@@ -1,0 +1,1272 @@
+
+  Total # of levels (at start)   =  4
+Level for M = 1
+Here MGforM prepares to apply Vcycle on M for k =  1
+Tells number of levels inside MGforM on M =  5
+and starting point is k =  1
+Prints each level inside MGforM  4
+size of M to be used as next level vector's size = 81
+Performing PREsmoothing with Damped Jacobi on M @ Level = 4
+Performing POSTsmoothing with Damped Jacobi on M @ Level = 4
+Prints each level inside MGforM  3
+size of M to be used as next level vector's size = 25
+Performing PREsmoothing with Damped Jacobi on M @ Level = 3
+Performing POSTsmoothing with Damped Jacobi on M @ Level = 3
+Prints each level inside MGforM  2
+size of M to be used as next level vector's size = 9
+Performing PREsmoothing with Damped Jacobi on M @ Level = 2
+Performing POSTsmoothing with Damped Jacobi on M @ Level = 2
+Prints each level inside MGforM  1
+size of M to be used as next level vector's size = 4
+Performing PREsmoothing with Damped Jacobi on M @ Level = 1
+Performing POSTsmoothing with Damped Jacobi on M @ Level = 1
+
+  ------if works; coarsesolve with gmres for k = 2
+Level for M = 2
+Here MGforM prepares to apply Vcycle on M for k =  2
+Tells number of levels inside MGforM on M =  4
+and starting point is k =  2
+Prints each level inside MGforM  3
+size of M to be used as next level vector's size = 25
+Performing PREsmoothing with Damped Jacobi on M @ Level = 3
+Performing POSTsmoothing with Damped Jacobi on M @ Level = 3
+Prints each level inside MGforM  2
+size of M to be used as next level vector's size = 9
+Performing PREsmoothing with Damped Jacobi on M @ Level = 2
+Performing POSTsmoothing with Damped Jacobi on M @ Level = 2
+Prints each level inside MGforM  1
+size of M to be used as next level vector's size = 4
+Performing PREsmoothing with Damped Jacobi on M @ Level = 1
+Performing POSTsmoothing with Damped Jacobi on M @ Level = 1
+
+  ------if works; coarsesolve with gmres for k = 3
+Level for M = 3
+Here MGforM prepares to apply Vcycle on M for k =  3
+Tells number of levels inside MGforM on M =  3
+and starting point is k =  3
+Prints each level inside MGforM  2
+size of M to be used as next level vector's size = 9
+Performing PREsmoothing with Damped Jacobi on M @ Level = 2
+Performing POSTsmoothing with Damped Jacobi on M @ Level = 2
+Prints each level inside MGforM  1
+size of M to be used as next level vector's size = 4
+Performing PREsmoothing with Damped Jacobi on M @ Level = 1
+Performing POSTsmoothing with Damped Jacobi on M @ Level = 1
+
+  ------if works; coarsesolve with gmres for k = 4
+Level for M = 4
+Here MGforM prepares to apply Vcycle on M for k =  4
+Tells number of levels inside MGforM on M =  2
+and starting point is k =  4
+Prints each level inside MGforM  1
+size of M to be used as next level vector's size = 4
+Performing PREsmoothing with Damped Jacobi on M @ Level = 1
+Performing POSTsmoothing with Damped Jacobi on M @ Level = 1
+
+  ------else if; PCLU on coarsesolve for k = 5
+KSP Object:(mg_coarse_mg_coarse_mg_coarse_mg_coarse_) 1 MPI processes
+  type: preonly
+  maximum iterations=1, initial guess is zero
+  tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+  left preconditioning
+  using DEFAULT norm type for convergence test
+PC Object:(mg_coarse_mg_coarse_mg_coarse_mg_coarse_) 1 MPI processes
+  type: lu
+    LU: out-of-place factorization
+    tolerance for zero pivot 1e-12
+    matrix ordering: nd
+  linear system matrix = precond matrix:
+  Matrix Object:   1 MPI processes  
+    type: seqaij
+    rows=4, cols=4
+    total: nonzeros=12, allocated nonzeros=12
+    total number of mallocs used during MatSetValues calls =0
+      not using I-node routines
+KSP Object:(mg_coarse_mg_coarse_mg_coarse_) 1 MPI processes
+  type: gmres
+    GMRES: restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+    GMRES: happy breakdown tolerance 1e-30
+  maximum iterations=1, initial guess is zero
+  tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+  left preconditioning
+  using DEFAULT norm type for convergence test
+PC Object:(mg_coarse_mg_coarse_mg_coarse_) 1 MPI processes
+  type: mg
+    MG: type is MULTIPLICATIVE, levels=2 cycles=v
+      Cycles per PCApply=1
+      Not using Galerkin computed coarse grid matrices
+  Coarse grid solver -- level -------------------------------
+    KSP Object:    (mg_coarse_mg_coarse_mg_coarse_mg_coarse_)     1 MPI processes    
+      type: preonly
+      maximum iterations=1, initial guess is zero
+      tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+      left preconditioning
+      using NONE norm type for convergence test
+    PC Object:    (mg_coarse_mg_coarse_mg_coarse_mg_coarse_)     1 MPI processes    
+      type: lu
+        LU: out-of-place factorization
+        tolerance for zero pivot 1e-12
+        matrix ordering: nd
+        factor fill ratio given 5, needed 1.16667
+          Factored matrix follows:
+            Matrix Object:             1 MPI processes            
+              type: seqaij
+              rows=4, cols=4
+              package used to perform factorization: petsc
+              total: nonzeros=14, allocated nonzeros=14
+              total number of mallocs used during MatSetValues calls =0
+                using I-node routines: found 3 nodes, limit used is 5
+      linear system matrix = precond matrix:
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=4, cols=4
+        total: nonzeros=12, allocated nonzeros=12
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+  Down solver (pre-smoother) on level 1 -------------------------------
+    KSP Object:    (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: richardson
+        Richardson: damping factor=1
+      maximum iterations=0, initial guess is zero
+      tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+      left preconditioning
+      using PRECONDITIONED norm type for convergence test
+    PC Object:    (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: none
+      linear system matrix followed by preconditioner matrix:
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=9, cols=9
+        total: nonzeros=45, allocated nonzeros=45
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=9, cols=9
+        total: nonzeros=45, allocated nonzeros=45
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+  Up solver (post-smoother) on level 1 -------------------------------
+    KSP Object:    (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: richardson
+        Richardson: damping factor=1
+      maximum iterations=1
+      tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+      left preconditioning
+      using nonzero initial guess
+      using PRECONDITIONED norm type for convergence test
+    PC Object:    (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: mg
+        MG: type is MULTIPLICATIVE, levels=2 cycles=v
+          Cycles per PCApply=1
+          Not using Galerkin computed coarse grid matrices
+      Coarse grid solver -- level -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_coarse_)         1 MPI processes        
+          type: preonly
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+          left preconditioning
+          using NONE norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_coarse_)         1 MPI processes        
+          type: lu
+            LU: out-of-place factorization
+            tolerance for zero pivot 1e-12
+            matrix ordering: nd
+            factor fill ratio given 5, needed 1.16667
+              Factored matrix follows:
+                Matrix Object:                 1 MPI processes                
+                  type: seqaij
+                  rows=4, cols=4
+                  package used to perform factorization: petsc
+                  total: nonzeros=14, allocated nonzeros=14
+                  total number of mallocs used during MatSetValues calls =0
+                    using I-node routines: found 3 nodes, limit used is 5
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=4, cols=4
+            total: nonzeros=12, allocated nonzeros=12
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=4, cols=4
+            total: nonzeros=12, allocated nonzeros=12
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Down solver (pre-smoother) on level 1 -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Up solver (post-smoother) on level 1 -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using nonzero initial guess
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      linear system matrix followed by preconditioner matrix:
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=9, cols=9
+        total: nonzeros=45, allocated nonzeros=45
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=9, cols=9
+        total: nonzeros=45, allocated nonzeros=45
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+  linear system matrix = precond matrix:
+  Matrix Object:   1 MPI processes  
+    type: seqaij
+    rows=9, cols=9
+    total: nonzeros=45, allocated nonzeros=45
+    total number of mallocs used during MatSetValues calls =0
+      not using I-node routines
+KSP Object:(mg_coarse_mg_coarse_) 1 MPI processes
+  type: gmres
+    GMRES: restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+    GMRES: happy breakdown tolerance 1e-30
+  maximum iterations=2, initial guess is zero
+  tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+  left preconditioning
+  using DEFAULT norm type for convergence test
+PC Object:(mg_coarse_mg_coarse_) 1 MPI processes
+  type: mg
+    MG: type is MULTIPLICATIVE, levels=2 cycles=v
+      Cycles per PCApply=1
+      Not using Galerkin computed coarse grid matrices
+  Coarse grid solver -- level -------------------------------
+    KSP Object:    (mg_coarse_mg_coarse_mg_coarse_)     1 MPI processes    
+      type: gmres
+        GMRES: restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+        GMRES: happy breakdown tolerance 1e-30
+      maximum iterations=1, initial guess is zero
+      tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+      left preconditioning
+      using PRECONDITIONED norm type for convergence test
+    PC Object:    (mg_coarse_mg_coarse_mg_coarse_)     1 MPI processes    
+      type: mg
+        MG: type is MULTIPLICATIVE, levels=2 cycles=v
+          Cycles per PCApply=1
+          Not using Galerkin computed coarse grid matrices
+      Coarse grid solver -- level -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_coarse_mg_coarse_)         1 MPI processes        
+          type: preonly
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using NONE norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_coarse_mg_coarse_)         1 MPI processes        
+          type: lu
+            LU: out-of-place factorization
+            tolerance for zero pivot 1e-12
+            matrix ordering: nd
+            factor fill ratio given 5, needed 1.16667
+              Factored matrix follows:
+                Matrix Object:                 1 MPI processes                
+                  type: seqaij
+                  rows=4, cols=4
+                  package used to perform factorization: petsc
+                  total: nonzeros=14, allocated nonzeros=14
+                  total number of mallocs used during MatSetValues calls =0
+                    using I-node routines: found 3 nodes, limit used is 5
+          linear system matrix = precond matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=4, cols=4
+            total: nonzeros=12, allocated nonzeros=12
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Down solver (pre-smoother) on level 1 -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=1
+          maximum iterations=0, initial guess is zero
+          tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+          left preconditioning
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)         1 MPI processes        
+          type: none
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Up solver (post-smoother) on level 1 -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=1
+          maximum iterations=1
+          tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+          left preconditioning
+          using nonzero initial guess
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)         1 MPI processes        
+          type: mg
+            MG: type is MULTIPLICATIVE, levels=2 cycles=v
+              Cycles per PCApply=1
+              Not using Galerkin computed coarse grid matrices
+          Coarse grid solver -- level -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_coarse_)             1 MPI processes            
+              type: preonly
+              maximum iterations=1, initial guess is zero
+              tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+              left preconditioning
+              using NONE norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_coarse_)             1 MPI processes            
+              type: lu
+                LU: out-of-place factorization
+                tolerance for zero pivot 1e-12
+                matrix ordering: nd
+                factor fill ratio given 5, needed 1.16667
+                  Factored matrix follows:
+                    Matrix Object:                     1 MPI processes                    
+                      type: seqaij
+                      rows=4, cols=4
+                      package used to perform factorization: petsc
+                      total: nonzeros=14, allocated nonzeros=14
+                      total number of mallocs used during MatSetValues calls =0
+                        using I-node routines: found 3 nodes, limit used is 5
+              linear system matrix followed by preconditioner matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=4, cols=4
+                total: nonzeros=12, allocated nonzeros=12
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=4, cols=4
+                total: nonzeros=12, allocated nonzeros=12
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          Down solver (pre-smoother) on level 1 -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)             1 MPI processes            
+              type: richardson
+                Richardson: damping factor=0.7
+              maximum iterations=1, initial guess is zero
+              tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+              left preconditioning
+              using PRECONDITIONED norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)             1 MPI processes            
+              type: jacobi
+              linear system matrix followed by preconditioner matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          Up solver (post-smoother) on level 1 -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)             1 MPI processes            
+              type: richardson
+                Richardson: damping factor=0.7
+              maximum iterations=1
+              tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+              left preconditioning
+              using nonzero initial guess
+              using PRECONDITIONED norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)             1 MPI processes            
+              type: jacobi
+              linear system matrix followed by preconditioner matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      linear system matrix = precond matrix:
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=9, cols=9
+        total: nonzeros=45, allocated nonzeros=45
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+  Down solver (pre-smoother) on level 1 -------------------------------
+    KSP Object:    (mg_coarse_mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: richardson
+        Richardson: damping factor=1
+      maximum iterations=0, initial guess is zero
+      tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+      left preconditioning
+      using PRECONDITIONED norm type for convergence test
+    PC Object:    (mg_coarse_mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: none
+      linear system matrix followed by preconditioner matrix:
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=25, cols=25
+        total: nonzeros=165, allocated nonzeros=165
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=25, cols=25
+        total: nonzeros=165, allocated nonzeros=165
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+  Up solver (post-smoother) on level 1 -------------------------------
+    KSP Object:    (mg_coarse_mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: richardson
+        Richardson: damping factor=1
+      maximum iterations=1
+      tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+      left preconditioning
+      using nonzero initial guess
+      using PRECONDITIONED norm type for convergence test
+    PC Object:    (mg_coarse_mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: mg
+        MG: type is MULTIPLICATIVE, levels=3 cycles=v
+          Cycles per PCApply=1
+          Not using Galerkin computed coarse grid matrices
+      Coarse grid solver -- level -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_levels_1_mg_coarse_)         1 MPI processes        
+          type: preonly
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+          left preconditioning
+          using NONE norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_levels_1_mg_coarse_)         1 MPI processes        
+          type: lu
+            LU: out-of-place factorization
+            tolerance for zero pivot 1e-12
+            matrix ordering: nd
+            factor fill ratio given 5, needed 1.16667
+              Factored matrix follows:
+                Matrix Object:                 1 MPI processes                
+                  type: seqaij
+                  rows=4, cols=4
+                  package used to perform factorization: petsc
+                  total: nonzeros=14, allocated nonzeros=14
+                  total number of mallocs used during MatSetValues calls =0
+                    using I-node routines: found 3 nodes, limit used is 5
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=4, cols=4
+            total: nonzeros=12, allocated nonzeros=12
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=4, cols=4
+            total: nonzeros=12, allocated nonzeros=12
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Down solver (pre-smoother) on level 1 -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Up solver (post-smoother) on level 1 -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using nonzero initial guess
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Down solver (pre-smoother) on level 2 -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_levels_1_mg_levels_2_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_levels_1_mg_levels_2_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Up solver (post-smoother) on level 2 -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_levels_1_mg_levels_2_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using nonzero initial guess
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_levels_1_mg_levels_2_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      linear system matrix followed by preconditioner matrix:
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=25, cols=25
+        total: nonzeros=165, allocated nonzeros=165
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=25, cols=25
+        total: nonzeros=165, allocated nonzeros=165
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+  linear system matrix = precond matrix:
+  Matrix Object:   1 MPI processes  
+    type: seqaij
+    rows=25, cols=25
+    total: nonzeros=165, allocated nonzeros=165
+    total number of mallocs used during MatSetValues calls =0
+      not using I-node routines
+KSP Object:(mg_coarse_) 1 MPI processes
+  type: gmres
+    GMRES: restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+    GMRES: happy breakdown tolerance 1e-30
+  maximum iterations=8, initial guess is zero
+  tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+  left preconditioning
+  using DEFAULT norm type for convergence test
+PC Object:(mg_coarse_) 1 MPI processes
+  type: mg
+    MG: type is MULTIPLICATIVE, levels=2 cycles=v
+      Cycles per PCApply=1
+      Not using Galerkin computed coarse grid matrices
+  Coarse grid solver -- level -------------------------------
+    KSP Object:    (mg_coarse_mg_coarse_)     1 MPI processes    
+      type: gmres
+        GMRES: restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+        GMRES: happy breakdown tolerance 1e-30
+      maximum iterations=2, initial guess is zero
+      tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+      left preconditioning
+      using PRECONDITIONED norm type for convergence test
+    PC Object:    (mg_coarse_mg_coarse_)     1 MPI processes    
+      type: mg
+        MG: type is MULTIPLICATIVE, levels=2 cycles=v
+          Cycles per PCApply=1
+          Not using Galerkin computed coarse grid matrices
+      Coarse grid solver -- level -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_coarse_)         1 MPI processes        
+          type: gmres
+            GMRES: restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+            GMRES: happy breakdown tolerance 1e-30
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_coarse_)         1 MPI processes        
+          type: mg
+            MG: type is MULTIPLICATIVE, levels=2 cycles=v
+              Cycles per PCApply=1
+              Not using Galerkin computed coarse grid matrices
+          Coarse grid solver -- level -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_coarse_mg_coarse_)             1 MPI processes            
+              type: preonly
+              maximum iterations=1, initial guess is zero
+              tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+              left preconditioning
+              using NONE norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_coarse_mg_coarse_)             1 MPI processes            
+              type: lu
+                LU: out-of-place factorization
+                tolerance for zero pivot 1e-12
+                matrix ordering: nd
+                factor fill ratio given 5, needed 1.16667
+                  Factored matrix follows:
+                    Matrix Object:                     1 MPI processes                    
+                      type: seqaij
+                      rows=4, cols=4
+                      package used to perform factorization: petsc
+                      total: nonzeros=14, allocated nonzeros=14
+                      total number of mallocs used during MatSetValues calls =0
+                        using I-node routines: found 3 nodes, limit used is 5
+              linear system matrix = precond matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=4, cols=4
+                total: nonzeros=12, allocated nonzeros=12
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          Down solver (pre-smoother) on level 1 -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)             1 MPI processes            
+              type: richardson
+                Richardson: damping factor=1
+              maximum iterations=0, initial guess is zero
+              tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+              left preconditioning
+              using PRECONDITIONED norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)             1 MPI processes            
+              type: none
+              linear system matrix followed by preconditioner matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          Up solver (post-smoother) on level 1 -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)             1 MPI processes            
+              type: richardson
+                Richardson: damping factor=1
+              maximum iterations=1
+              tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+              left preconditioning
+              using nonzero initial guess
+              using PRECONDITIONED norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_)             1 MPI processes            
+              type: mg
+                MG: type is MULTIPLICATIVE, levels=2 cycles=v
+                  Cycles per PCApply=1
+                  Not using Galerkin computed coarse grid matrices
+              Coarse grid solver -- level -------------------------------
+                KSP Object:                (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_coarse_)                 1 MPI processes                
+                  type: preonly
+                  maximum iterations=1, initial guess is zero
+                  tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+                  left preconditioning
+                  using NONE norm type for convergence test
+                PC Object:                (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_coarse_)                 1 MPI processes                
+                  type: lu
+                    LU: out-of-place factorization
+                    tolerance for zero pivot 1e-12
+                    matrix ordering: nd
+                    factor fill ratio given 5, needed 1.16667
+                      Factored matrix follows:
+                        Matrix Object:                         1 MPI processes                        
+                          type: seqaij
+                          rows=4, cols=4
+                          package used to perform factorization: petsc
+                          total: nonzeros=14, allocated nonzeros=14
+                          total number of mallocs used during MatSetValues calls =0
+                            using I-node routines: found 3 nodes, limit used is 5
+                  linear system matrix followed by preconditioner matrix:
+                  Matrix Object:                   1 MPI processes                  
+                    type: seqaij
+                    rows=4, cols=4
+                    total: nonzeros=12, allocated nonzeros=12
+                    total number of mallocs used during MatSetValues calls =0
+                      not using I-node routines
+                  Matrix Object:                   1 MPI processes                  
+                    type: seqaij
+                    rows=4, cols=4
+                    total: nonzeros=12, allocated nonzeros=12
+                    total number of mallocs used during MatSetValues calls =0
+                      not using I-node routines
+              Down solver (pre-smoother) on level 1 -------------------------------
+                KSP Object:                (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)                 1 MPI processes                
+                  type: richardson
+                    Richardson: damping factor=0.7
+                  maximum iterations=1, initial guess is zero
+                  tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+                  left preconditioning
+                  using PRECONDITIONED norm type for convergence test
+                PC Object:                (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)                 1 MPI processes                
+                  type: jacobi
+                  linear system matrix followed by preconditioner matrix:
+                  Matrix Object:                   1 MPI processes                  
+                    type: seqaij
+                    rows=9, cols=9
+                    total: nonzeros=45, allocated nonzeros=45
+                    total number of mallocs used during MatSetValues calls =0
+                      not using I-node routines
+                  Matrix Object:                   1 MPI processes                  
+                    type: seqaij
+                    rows=9, cols=9
+                    total: nonzeros=45, allocated nonzeros=45
+                    total number of mallocs used during MatSetValues calls =0
+                      not using I-node routines
+              Up solver (post-smoother) on level 1 -------------------------------
+                KSP Object:                (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)                 1 MPI processes                
+                  type: richardson
+                    Richardson: damping factor=0.7
+                  maximum iterations=1
+                  tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+                  left preconditioning
+                  using nonzero initial guess
+                  using PRECONDITIONED norm type for convergence test
+                PC Object:                (mg_coarse_mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)                 1 MPI processes                
+                  type: jacobi
+                  linear system matrix followed by preconditioner matrix:
+                  Matrix Object:                   1 MPI processes                  
+                    type: seqaij
+                    rows=9, cols=9
+                    total: nonzeros=45, allocated nonzeros=45
+                    total number of mallocs used during MatSetValues calls =0
+                      not using I-node routines
+                  Matrix Object:                   1 MPI processes                  
+                    type: seqaij
+                    rows=9, cols=9
+                    total: nonzeros=45, allocated nonzeros=45
+                    total number of mallocs used during MatSetValues calls =0
+                      not using I-node routines
+              linear system matrix followed by preconditioner matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          linear system matrix = precond matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Down solver (pre-smoother) on level 1 -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_levels_1_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=1
+          maximum iterations=0, initial guess is zero
+          tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+          left preconditioning
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_levels_1_)         1 MPI processes        
+          type: none
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Up solver (post-smoother) on level 1 -------------------------------
+        KSP Object:        (mg_coarse_mg_coarse_mg_levels_1_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=1
+          maximum iterations=1
+          tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+          left preconditioning
+          using nonzero initial guess
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_coarse_mg_levels_1_)         1 MPI processes        
+          type: mg
+            MG: type is MULTIPLICATIVE, levels=3 cycles=v
+              Cycles per PCApply=1
+              Not using Galerkin computed coarse grid matrices
+          Coarse grid solver -- level -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_levels_1_mg_coarse_)             1 MPI processes            
+              type: preonly
+              maximum iterations=1, initial guess is zero
+              tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+              left preconditioning
+              using NONE norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_levels_1_mg_coarse_)             1 MPI processes            
+              type: lu
+                LU: out-of-place factorization
+                tolerance for zero pivot 1e-12
+                matrix ordering: nd
+                factor fill ratio given 5, needed 1.16667
+                  Factored matrix follows:
+                    Matrix Object:                     1 MPI processes                    
+                      type: seqaij
+                      rows=4, cols=4
+                      package used to perform factorization: petsc
+                      total: nonzeros=14, allocated nonzeros=14
+                      total number of mallocs used during MatSetValues calls =0
+                        using I-node routines: found 3 nodes, limit used is 5
+              linear system matrix followed by preconditioner matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=4, cols=4
+                total: nonzeros=12, allocated nonzeros=12
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=4, cols=4
+                total: nonzeros=12, allocated nonzeros=12
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          Down solver (pre-smoother) on level 1 -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)             1 MPI processes            
+              type: richardson
+                Richardson: damping factor=0.7
+              maximum iterations=1, initial guess is zero
+              tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+              left preconditioning
+              using PRECONDITIONED norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)             1 MPI processes            
+              type: jacobi
+              linear system matrix followed by preconditioner matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          Up solver (post-smoother) on level 1 -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)             1 MPI processes            
+              type: richardson
+                Richardson: damping factor=0.7
+              maximum iterations=1
+              tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+              left preconditioning
+              using nonzero initial guess
+              using PRECONDITIONED norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_levels_1_mg_levels_1_)             1 MPI processes            
+              type: jacobi
+              linear system matrix followed by preconditioner matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=9, cols=9
+                total: nonzeros=45, allocated nonzeros=45
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          Down solver (pre-smoother) on level 2 -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_levels_1_mg_levels_2_)             1 MPI processes            
+              type: richardson
+                Richardson: damping factor=0.7
+              maximum iterations=1, initial guess is zero
+              tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+              left preconditioning
+              using PRECONDITIONED norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_levels_1_mg_levels_2_)             1 MPI processes            
+              type: jacobi
+              linear system matrix followed by preconditioner matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=25, cols=25
+                total: nonzeros=165, allocated nonzeros=165
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=25, cols=25
+                total: nonzeros=165, allocated nonzeros=165
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          Up solver (post-smoother) on level 2 -------------------------------
+            KSP Object:            (mg_coarse_mg_coarse_mg_levels_1_mg_levels_2_)             1 MPI processes            
+              type: richardson
+                Richardson: damping factor=0.7
+              maximum iterations=1
+              tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+              left preconditioning
+              using nonzero initial guess
+              using PRECONDITIONED norm type for convergence test
+            PC Object:            (mg_coarse_mg_coarse_mg_levels_1_mg_levels_2_)             1 MPI processes            
+              type: jacobi
+              linear system matrix followed by preconditioner matrix:
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=25, cols=25
+                total: nonzeros=165, allocated nonzeros=165
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+              Matrix Object:               1 MPI processes              
+                type: seqaij
+                rows=25, cols=25
+                total: nonzeros=165, allocated nonzeros=165
+                total number of mallocs used during MatSetValues calls =0
+                  not using I-node routines
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      linear system matrix = precond matrix:
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=25, cols=25
+        total: nonzeros=165, allocated nonzeros=165
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+  Down solver (pre-smoother) on level 1 -------------------------------
+    KSP Object:    (mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: richardson
+        Richardson: damping factor=1
+      maximum iterations=0, initial guess is zero
+      tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+      left preconditioning
+      using PRECONDITIONED norm type for convergence test
+    PC Object:    (mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: none
+      linear system matrix followed by preconditioner matrix:
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=81, cols=81
+        total: nonzeros=621, allocated nonzeros=621
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=81, cols=81
+        total: nonzeros=621, allocated nonzeros=621
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+  Up solver (post-smoother) on level 1 -------------------------------
+    KSP Object:    (mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: richardson
+        Richardson: damping factor=1
+      maximum iterations=1
+      tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+      left preconditioning
+      using nonzero initial guess
+      using PRECONDITIONED norm type for convergence test
+    PC Object:    (mg_coarse_mg_levels_1_)     1 MPI processes    
+      type: mg
+        MG: type is MULTIPLICATIVE, levels=4 cycles=v
+          Cycles per PCApply=1
+          Not using Galerkin computed coarse grid matrices
+      Coarse grid solver -- level -------------------------------
+        KSP Object:        (mg_coarse_mg_levels_1_mg_coarse_)         1 MPI processes        
+          type: preonly
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-05, absolute=1e-50, divergence=10000
+          left preconditioning
+          using NONE norm type for convergence test
+        PC Object:        (mg_coarse_mg_levels_1_mg_coarse_)         1 MPI processes        
+          type: lu
+            LU: out-of-place factorization
+            tolerance for zero pivot 1e-12
+            matrix ordering: nd
+            factor fill ratio given 5, needed 1.16667
+              Factored matrix follows:
+                Matrix Object:                 1 MPI processes                
+                  type: seqaij
+                  rows=4, cols=4
+                  package used to perform factorization: petsc
+                  total: nonzeros=14, allocated nonzeros=14
+                  total number of mallocs used during MatSetValues calls =0
+                    using I-node routines: found 3 nodes, limit used is 5
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=4, cols=4
+            total: nonzeros=12, allocated nonzeros=12
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=4, cols=4
+            total: nonzeros=12, allocated nonzeros=12
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Down solver (pre-smoother) on level 1 -------------------------------
+        KSP Object:        (mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Up solver (post-smoother) on level 1 -------------------------------
+        KSP Object:        (mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using nonzero initial guess
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_levels_1_mg_levels_1_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=9, cols=9
+            total: nonzeros=45, allocated nonzeros=45
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Down solver (pre-smoother) on level 2 -------------------------------
+        KSP Object:        (mg_coarse_mg_levels_1_mg_levels_2_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_levels_1_mg_levels_2_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Up solver (post-smoother) on level 2 -------------------------------
+        KSP Object:        (mg_coarse_mg_levels_1_mg_levels_2_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using nonzero initial guess
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_levels_1_mg_levels_2_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=25, cols=25
+            total: nonzeros=165, allocated nonzeros=165
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Down solver (pre-smoother) on level 3 -------------------------------
+        KSP Object:        (mg_coarse_mg_levels_1_mg_levels_3_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1, initial guess is zero
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_levels_1_mg_levels_3_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=81, cols=81
+            total: nonzeros=621, allocated nonzeros=621
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=81, cols=81
+            total: nonzeros=621, allocated nonzeros=621
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      Up solver (post-smoother) on level 3 -------------------------------
+        KSP Object:        (mg_coarse_mg_levels_1_mg_levels_3_)         1 MPI processes        
+          type: richardson
+            Richardson: damping factor=0.7
+          maximum iterations=1
+          tolerances:  relative=1e-12, absolute=1e-50, divergence=1e+07
+          left preconditioning
+          using nonzero initial guess
+          using PRECONDITIONED norm type for convergence test
+        PC Object:        (mg_coarse_mg_levels_1_mg_levels_3_)         1 MPI processes        
+          type: jacobi
+          linear system matrix followed by preconditioner matrix:
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=81, cols=81
+            total: nonzeros=621, allocated nonzeros=621
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+          Matrix Object:           1 MPI processes          
+            type: seqaij
+            rows=81, cols=81
+            total: nonzeros=621, allocated nonzeros=621
+            total number of mallocs used during MatSetValues calls =0
+              not using I-node routines
+      linear system matrix followed by preconditioner matrix:
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=81, cols=81
+        total: nonzeros=621, allocated nonzeros=621
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+      Matrix Object:       1 MPI processes      
+        type: seqaij
+        rows=81, cols=81
+        total: nonzeros=621, allocated nonzeros=621
+        total number of mallocs used during MatSetValues calls =0
+          not using I-node routines
+  linear system matrix = precond matrix:
+  Matrix Object:   1 MPI processes  
+    type: seqaij
+    rows=81, cols=81
+    total: nonzeros=621, allocated nonzeros=621
+    total number of mallocs used during MatSetValues calls =0
+      not using I-node routines
+
+** Number of iterations done = 15 
+
+[PETSc]:Time spend in setup = 5.319500e-02 
+[PETSc]:Time spend in solve = 5.341170e-01 
+[PETSc]:Total time = 5.873120e-01 
+
