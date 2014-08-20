@@ -13,6 +13,6 @@ keep that make file in directory, where main program MainSolver.c is .
 
 An example of how to compile and execute the main file and sub files. 
 
-> make GMGcycle.c; make MLadef.c; make MainSolver
+> make GMGcycle.o; make MLadef.o; make MainSolver
 
 ./MainSolver -f ~/path/to/your/datafile/filename.dat 
