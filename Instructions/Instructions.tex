@@ -47,74 +47,31 @@ constructed in Matlab and subsequently are written into \texttt{.DAT} files.
 Important part of ADEF1 solver sotware is part which implements multilevel
 preconditioner. This is implemented in \texttt{PETSc}, which calls the 
 \texttt{.DAT} files on run time. 
-\subsection{Structure}
+\paragraph{Structure}
 Main directory  \texttt{Adef1\_Software} contains two sub-directorows;
 \texttt{ConstructDatFiles} and \texttt{PetscSolver}.\\
 The directory \texttt{ConstructDatFiles} constructs data files. 
 \section{Constructing DATA files}
-AddPath of your PETSC"matlab-bin" directory in matlab session
-or adapt path in program "MainMarmousi.m" . 
-
-
-Run the program "MainMarmousi.m"
-It will ask for options in an input dialogue box. 
-Options: 
-
--- 	Frequency "f", give values f = 1, 10, 20 or 40
-
---	Meshsize, in terms of grid points per wavelenth. Limited to 10 or 20.
-
---	Real shift in complex shifted Laplace preconditioenrr CSLP. Choose
-whatever you want to 
-	use as CSLP. 
-
---	Real shift in complex shifted Laplace preconditioenrr CSLP. Choose
-whatever you want to 
-	use as CSLP. 
-
---	Imaginary shift in complex shifted Laplace preconditioenrr CSLP. Choose
-whatever you want to 
-	use as CSLP. 
-
---	Damping parameter in equation. 
-
-
-First test run with defaults option in order to check if it runs smoothly. 
-Subsequently customize with options. 
-
-Output file will be a .DAT file and will be saved in directory ../DAtaFiles/ 
-with customized name  "f1gpWL10a0.05" where 
-
------------------------------------------------------------------------------
-f			tells frequency
------------------------------------------------------------------------------
-1 (or 10,20,40)	 	provided frequency
------------------------------------------------------------------------------
-gpWL			indicates mesh size in terms gridpoints / wavelength
------------------------------------------------------------------------------
-10 (or 20)		provided grid points / wavelength
------------------------------------------------------------------------------
-a			damping parameter $\alpha$
------------------------------------------------------------------------------
-0.05			provided damping parameter value
------------------------------------------------------------------------------
-
-
-
-
-==========================
-PLEASE NOTE WHEN ADAPTING
-==========================
-Reading .dat file in Petsc is sensible of orders of things(matrices and
-vectors) 
-written in .dat file . 
-
-If you wish to adapt, adapt it carefully. Take care of the order, 
-persist with same order while writing into .dat file and reading same .dat file.
-
-
-Run the Matlab program \texttt{MainMarmousi.m} in matlab session. This will
-immediately ask the options and will construct discrete matrices accordingly.
+Add the directory \texttt{ConstructDatFiles} to Matlab path also 
+AddPath of your PETSC \texttt{matlab-bin} directory in matlab session
+or adapt path in program \texttt{MainMarmousi.m}. \\
+\par
+Run the program \texttt{MainMarmousi.m} It will ask for options in an input
+dialogue box. Those options are as following; \\
+\begin{table}[h]
+\begin{tabular}{ll}
+\textbf{Frequency} $f$ & Give values f = 1, 10, 20 or 40\\
+\textbf{Meshsize} & In terms of grid points per wavelenth. Choose 10 or 20. \\
+\textbf{Real shift} & Real shift in complex shifted Laplace preconditioenrr
+CSLP,\\
+& choose whatever you want to use as CSLP.\\
+\textbf{Imag. shift}& Imaginary shift in complex shifted Laplace
+preconditioenrr CSLP, \\
+& choose  whatever you want to use as CSLP.  \\
+\textbf{Damping}& Damping parameter in equation.\\
+\end{tabular}
+\end{table}
+THat program  construct discrete matrices according to provided options.
 An example is shown in Figure \ref{fig:fig1}.
 %
 \begin{figure}[h]
@@ -123,39 +80,41 @@ An example is shown in Figure \ref{fig:fig1}.
 \caption{Menu to choose options while constructing \texttt{.DAT} files.}
 \label{fig:fig1}
 \end{figure}
-\\
+
+\paragraph{Recommended:} First test run with defaults option in order to check
+if it runs smoothly. Subsequently customize with options. \\
+\par
+Output file will be a .DAT file and will be saved in directory ../DAtaFiles/ 
+with customized name \texttt{fN1gpWLN2aN3.dat} where f,gpWL,and
+a are constant where N1, N2 and N3 will customized according to
+options. For example f1gpWL10a0.05.dat, is data set with frequency $f=1$,
+number of $gp/wl= 10$ and damping parameter $a = 0.05$. \\
 
 
+\subsection{How to adapt}
+PLEASE NOTE WHEN ADAPTING, \\
+Reading \texttt{FILENAME.dat} file in Petsc is sensible of orders of
+things(matrices and vectors) 
+written in \texttt{.dat} file. If you wish to adapt, adapt it carefully. Take
+care of the order, persist with same order while writing into .dat file and
+reading same \texttt{.dat} file. \\
+\par
+The directory \texttt{PetscSolver} implements the ADEF1 solver.
+\section{Solving part of software}
+In the terminal, go to the target directory; Compile the program as follows\\
 
-% \input{random.tex}
-% %
-% \input{petsc-email}
-% %
-% \input{20Sep.tex}
-% % %
-% \input{ToDo.tex}
-% %
-% \input{ToNote.tex}
-% % %
-% \input{algorithm-explore.tex}
-% % %
-% \input{petsc.tex}
-% % 
-%  % 
-% %
-% \cleardoublepage
-% %
-% % \input{petsc1.tex}
-% %
-% \input{3d7pntFDM.tex}
-% 
-% 
-%  \newpage
-%  \bibliography{reference}
-%   \bibliographystyle{unsrt}
-%    \bibliographystyle{abbrv}
-%     \newpage
-% %	
+\texttt{> make GMGcycle.o; make MLadef.o; make MainSolver} \\
+
+subsequntly execute the executable program and provide with data file with
+``-f'' as follows: \\
+
+\texttt{> ./MainSolver -f /your/path/to/datafile.dat}.\\ 
+\par
+This executuion accept all the possible runtime PETSc options. These all
+options can be listen by executing program with ``-help''.
+ 
+
+
 
 %
 \end{document}
