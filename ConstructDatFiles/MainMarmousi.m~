@@ -133,4 +133,5 @@ PetscBinaryWrite(filename,NumLevel, S{1}.A, S{1}.M, S{1}.P, S{1}.R, ...
             S{2}.P, S{2}.R, S{3}.P, S{3}.R, S{4}.P, S{4}.R, S{5}.P, ...
             S{5}.R, S{6}.P, S{6}.R, S{7}.P, S{7}.R, S{1}.b);
         fprintf('\n performing case when f = %d and alpha = %d \n',f,alpha);
-        system('mv -- *.dat ../DataFiles/')
+system('mv *.dat ../DataFiles/*.dat')
+ 
